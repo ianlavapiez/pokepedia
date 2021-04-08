@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import { basepath } from "./enum/Path";
 import reduxStore from "./store";
 import * as serviceWorker from "./serviceWorker";
+import "antd/dist/antd.css";
 
 const history = createBrowserHistory({ basename: basepath });
 reduxStore.createStore(history);
