@@ -1,3 +1,7 @@
+import { homepage } from "../../package.json";
+
+export const basepath = homepage;
+
 enum Path {
   HOME = "/",
 }

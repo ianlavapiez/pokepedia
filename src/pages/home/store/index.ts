@@ -37,4 +37,6 @@ const home = createReducer<HomeState, Actions>(initialState)
     loading: false,
   }));
 
+export * from "./selectors";
+export type HomeActions = Actions;
 export default home;
