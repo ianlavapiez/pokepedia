@@ -6,7 +6,7 @@ import { RootState } from "../../store/rootReducer";
 import { isAddPokemonModalVisible, isLoading } from "./store";
 import Labeled from "../Labeled";
 import Select from "antd/es/select";
-import { TextFieldContainer } from "./add-pokemon-modal.styles";
+import { TextFieldContainer } from "./AddPokemonModal.styles";
 
 type FavoriteType = "yes" | "no";
 

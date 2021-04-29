@@ -1,18 +1,24 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
+import { connect } from "react-redux";
 import Button from "antd/es/button";
-import { HomeContainer, ImageContainer } from "./home.styles";
+import { HomeContainer, ImageContainer } from "./Home.styles";
 import Table from "./components/Table";
 import Title from "antd/lib/typography/Title";
 import AddPokemonModal from "../../components/AddPokemonModal";
 import { showAddPokemonModal } from "../../components/AddPokemonModal/store/actions";
-import { connect } from "react-redux";
+import { initialize } from "./store/actions";
 
 interface Props {
+  initialize: typeof initialize.request;
   showAddPokemonModal: typeof showAddPokemonModal;
 }
 
-export const Home: React.FC<Props> = ({ showAddPokemonModal }) => {
+export const Home: React.FC<Props> = ({ initialize, showAddPokemonModal }) => {
   const handleCreateRouteClick = useCallback(() => showAddPokemonModal(), [showAddPokemonModal]);
+
+  useEffect(() => {
+    initialize();
+  }, [initialize]);
 
   return (
     <HomeContainer>
@@ -36,6 +42,7 @@ export const Home: React.FC<Props> = ({ showAddPokemonModal }) => {
 };
 
 const mapDispatchToProps = {
+  initialize: initialize.request,
   showAddPokemonModal,
 };
 
